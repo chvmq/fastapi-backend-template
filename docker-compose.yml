@@ -1,0 +1,27 @@
+version: "3"
+services:
+  db:
+    image: postgres:14.1
+    env_file:
+      development.env
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    container_name: template_db
+
+  backend:
+    restart: always
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes: 
+      - .:/app
+    container_name: template_backend
+    depends_on:
+      - db
+
