@@ -18,3 +18,6 @@ DATABASE_URL = f"postgresql://{_POSTGRES_USER}:{_POSTGRES_PASSWORD}@db:5432/{_PO
 environ["DATABASE_URL"] = DATABASE_URL
 
 
+OAUTH_1 = False
+OAUTH_2 = True
+

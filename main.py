@@ -7,7 +7,7 @@ from core.config import (
     SITE_HOST,
     PROJECT_TITLE,
 )
-from db.base import database
+from routers import api_router
 
 
 app = FastAPI(title=PROJECT_TITLE)
@@ -18,14 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-@app.on_event("startup")
-async def startup():
-    await database.connect()
-
-@app.on_event("shutdown")
-async def shutdown():
-    await database.disconnect()
+app.include_router(api_router)
 
 if __name__ == "__main__":
     run(
