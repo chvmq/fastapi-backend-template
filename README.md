@@ -1,14 +1,11 @@
-### Структура
+### Structure
 
 + Python 3.8
-+ Django 3.2
-+ Nginx (проксирующий сервер)
++ FastApi
 + PostgreSQL
-+ Redis (кэш и брокер для celery)
-+ Сelery (отложенные и регулярные задачи)
 
 
-### Запуск
+### Start
 
 ```
 $ docker-compose up --build
@@ -20,7 +17,11 @@ $ docker-compose up --build
 + Alembic migration tool
 
 
-### Системные требования
+### Requirements to start
 
 + docker-compose 1.26.0
 + docker 20.10.9
+
+##### Video
+
+https://www.twitch.tv/videos/1252639584
